@@ -43,7 +43,7 @@ def natas21(user21, password21):
     #FIRST REQUEST
 
     session = requests.session()
-    key = dict(submit=1, admin=1)
+    key = dict(submit="Update", admin=1)
     response = session.post(urlExperimenter, params=key, auth=auth)
     sid = session.cookies['PHPSESSID']
 
