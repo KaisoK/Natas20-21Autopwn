@@ -1,0 +1,4 @@
+requests
+subprocess
+pwinput
+bs4
